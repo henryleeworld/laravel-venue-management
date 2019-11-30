@@ -27,7 +27,7 @@ $ php artisan migrate --seed
 
 ## 畫面截圖
 ![](https://i.imgur.com/z4gubgI.png)
-> 新增活動場所，檢視訊息是否完整
+> 新增活動場所，檢視資訊是否完整
 
 ![](https://i.imgur.com/Nk0YJcq.png)
 > 提供活動場所的費用資訊，讓客戶在租場地時有更多的選擇
