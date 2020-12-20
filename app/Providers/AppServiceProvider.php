@@ -2,10 +2,10 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\ServiceProvider;
+use App\Models\EventType;
+use App\Models\Location;
 use Illuminate\Support\Facades\View;
-use App\EventType;
-use App\Location;
+use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {

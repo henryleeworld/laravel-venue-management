@@ -1,8 +1,10 @@
 <?php
 
+namespace Database\Seeders;
+
+use App\Models\Location;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
-use App\Location;
 
 class LocationsTableSeeder extends Seeder
 {
@@ -27,7 +29,7 @@ class LocationsTableSeeder extends Seeder
                 'slug' => $slug
             ]);
 
-            $locationObject->addMediaFromUrl(public_path('images/locations/' . $slug . '.jpg'))->toMediaCollection('photo');
+            $locationObject->addMediaFromUrl(asset('images/locations/' . $slug . '.jpg'))->toMediaCollection('photo');
         }
     }
 }

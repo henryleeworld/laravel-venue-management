@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Venue;
+use App\Models\Venue;
 
 class VenueController extends Controller
 {

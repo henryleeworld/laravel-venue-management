@@ -1,7 +1,9 @@
 <?php
 
+namespace Database\Seeders;
+
+use App\Models\EventType;
 use Illuminate\Database\Seeder;
-use App\EventType;
 use Illuminate\Support\Str;
 
 class EventTypesTableSeeder extends Seeder

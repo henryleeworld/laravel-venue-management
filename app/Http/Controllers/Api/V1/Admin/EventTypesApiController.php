@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Api\V1\Admin;
 
-use App\EventType;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Traits\MediaUploadingTrait;
 use App\Http\Requests\StoreEventTypeRequest;
 use App\Http\Requests\UpdateEventTypeRequest;
 use App\Http\Resources\Admin\EventTypeResource;
+use App\Models\EventType;
 use Gate;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;

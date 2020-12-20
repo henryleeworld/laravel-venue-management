@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\EventType;
-use App\Location;
-use App\Venue;
+use App\Models\EventType;
+use App\Models\Location;
+use App\Models\Venue;
 
 class LocationController extends Controller
 {

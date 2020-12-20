@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\EventType;
-use App\Venue;
+use App\Models\EventType;
+use App\Models\Venue;
 
 class EventTypeController extends Controller
 {

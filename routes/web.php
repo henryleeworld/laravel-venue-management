@@ -1,5 +1,10 @@
 <?php
 
+use App\Http\Controllers\EventTypeController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LocationController;
+use App\Http\Controllers\SearchController;
+use App\Http\Controllers\VenueController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,11 +18,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'HomeController@index');
-Route::get('event-type/{slug}', 'EventTypeController@index')->name('event_type');
-Route::get('location/{slug}', 'LocationController@index')->name('location');
-Route::get('search', 'SearchController@index')->name('search');
-Route::get('venues/{slug}/{id}', 'VenueController@show')->name('venues.show');
+Route::get('/', [HomeController::class, 'index']);
+Route::get('event-type/{slug}', [EventTypeController::class, 'index'])->name('event_type');
+Route::get('location/{slug}', [LocationController::class, 'index'])->name('location');
+Route::get('search', [SearchController::class, 'index'])->name('search');
+Route::get('venues/{slug}/{id}', [VenueController::class, 'show'])->name('venues.show');
 
 Route::view('about', 'about')->name('about');
 Route::view('contact', 'contact')->name('contact');
@@ -25,7 +30,7 @@ Route::view('contact', 'contact')->name('contact');
 Route::redirect('/home', '/admin');
 Auth::routes(['register' => false]);
 
-Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth']], function () {
+Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Controllers\Admin', 'middleware' => ['auth']], function () {
     Route::get('/', 'HomeController@index')->name('home');
     // Permissions
     Route::delete('permissions/destroy', 'PermissionsController@massDestroy')->name('permissions.massDestroy');

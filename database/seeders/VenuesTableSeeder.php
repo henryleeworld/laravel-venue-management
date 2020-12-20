@@ -1,9 +1,11 @@
 <?php
 
+namespace Database\Seeders;
+
+use App\Models\EventType;
+use App\Models\Location;
+use App\Models\Venue;
 use Illuminate\Database\Seeder;
-use App\Venue;
-use App\Location;
-use App\EventType;
 
 class VenuesTableSeeder extends Seeder
 {
@@ -18,7 +20,7 @@ class VenuesTableSeeder extends Seeder
         $eventTypes = EventType::all();
 
         for ($i=1; $i <= 4; $i++) {
-            $venue = factory(Venue::class)->create([
+            $venue = Venue::factory()->create([
                 'latitude' => rand(-20, 20),
                 'longitude' => rand(-20, 20),
                 'people_minimum' => rand(1, 5),
@@ -30,7 +32,7 @@ class VenuesTableSeeder extends Seeder
 
             $venue->event_types()->attach($eventTypes->first()->id);
 
-            $venue->addMediaFromUrl(public_path('images/hero_bg_' . $venue->id . '.jpg'))->toMediaCollection('main_photo');
+            $venue->addMediaFromUrl(asset('images/hero_bg_' . $venue->id . '.jpg'))->toMediaCollection('main_photo');
         }
     }
 }

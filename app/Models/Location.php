@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -8,11 +8,11 @@ use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
-class EventType extends Model implements HasMedia
+class Location extends Model implements HasMedia
 {
     use SoftDeletes, InteractsWithMedia;
 
-    public $table = 'event_types';
+    public $table = 'locations';
 
     protected $appends = [
         'photo',
@@ -39,7 +39,7 @@ class EventType extends Model implements HasMedia
 
     public function venues()
     {
-        return $this->belongsToMany(Venue::class);
+        return $this->hasMany(Venue::class, 'location_id', 'id');
     }
 
     public function getPhotoAttribute()

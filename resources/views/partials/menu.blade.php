@@ -1,97 +1,99 @@
-<div class="sidebar">
-    <nav class="sidebar-nav">
+<div id="sidebar" class="c-sidebar c-sidebar-fixed c-sidebar-lg-show">
 
-        <ul class="nav">
-            <li class="nav-item">
-                <a href="{{ route("admin.home") }}" class="nav-link">
-                    <i class="nav-icon fas fa-fw fa-tachometer-alt">
+    <div class="c-sidebar-brand d-md-down-none">
+        <a class="c-sidebar-brand-full h4" href="#">
+            {{ trans('panel.site_title') }}
+        </a>
+    </div>
 
-                    </i>
-                    {{ trans('global.dashboard') }}
-                </a>
-            </li>
-            @can('user_management_access')
-                <li class="nav-item nav-dropdown">
-                    <a class="nav-link  nav-dropdown-toggle" href="#">
-                        <i class="fa-fw fas fa-users nav-icon">
+    <ul class="c-sidebar-nav">
+        <li class="c-sidebar-nav-item">
+            <a href="{{ route("admin.home") }}" class="c-sidebar-nav-link">
+                <i class="c-sidebar-nav-icon fas fa-fw fa-tachometer-alt">
 
-                        </i>
-                        {{ trans('cruds.userManagement.title') }}
-                    </a>
-                    <ul class="nav-dropdown-items">
-                        @can('permission_access')
-                            <li class="nav-item">
-                                <a href="{{ route("admin.permissions.index") }}" class="nav-link {{ request()->is('admin/permissions') || request()->is('admin/permissions/*') ? 'active' : '' }}">
-                                    <i class="fa-fw fas fa-unlock-alt nav-icon">
-
-                                    </i>
-                                    {{ trans('cruds.permission.title') }}
-                                </a>
-                            </li>
-                        @endcan
-                        @can('role_access')
-                            <li class="nav-item">
-                                <a href="{{ route("admin.roles.index") }}" class="nav-link {{ request()->is('admin/roles') || request()->is('admin/roles/*') ? 'active' : '' }}">
-                                    <i class="fa-fw fas fa-briefcase nav-icon">
-
-                                    </i>
-                                    {{ trans('cruds.role.title') }}
-                                </a>
-                            </li>
-                        @endcan
-                        @can('user_access')
-                            <li class="nav-item">
-                                <a href="{{ route("admin.users.index") }}" class="nav-link {{ request()->is('admin/users') || request()->is('admin/users/*') ? 'active' : '' }}">
-                                    <i class="fa-fw fas fa-user nav-icon">
-
-                                    </i>
-                                    {{ trans('cruds.user.title') }}
-                                </a>
-                            </li>
-                        @endcan
-                    </ul>
-                </li>
-            @endcan
-            @can('location_access')
-                <li class="nav-item">
-                    <a href="{{ route("admin.locations.index") }}" class="nav-link {{ request()->is('admin/locations') || request()->is('admin/locations/*') ? 'active' : '' }}">
-                        <i class="fa-fw fas fa-cogs nav-icon">
-
-                        </i>
-                        {{ trans('cruds.location.title') }}
-                    </a>
-                </li>
-            @endcan
-            @can('event_type_access')
-                <li class="nav-item">
-                    <a href="{{ route("admin.event-types.index") }}" class="nav-link {{ request()->is('admin/event-types') || request()->is('admin/event-types/*') ? 'active' : '' }}">
-                        <i class="fa-fw fas fa-cogs nav-icon">
-
-                        </i>
-                        {{ trans('cruds.eventType.title') }}
-                    </a>
-                </li>
-            @endcan
-            @can('venue_access')
-                <li class="nav-item">
-                    <a href="{{ route("admin.venues.index") }}" class="nav-link {{ request()->is('admin/venues') || request()->is('admin/venues/*') ? 'active' : '' }}">
-                        <i class="fa-fw fas fa-cogs nav-icon">
-
-                        </i>
-                        {{ trans('cruds.venue.title') }}
-                    </a>
-                </li>
-            @endcan
-            <li class="nav-item">
-                <a href="#" class="nav-link" onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
-                    <i class="nav-icon fas fa-fw fa-sign-out-alt">
+                </i>
+                {{ trans('global.dashboard') }}
+            </a>
+        </li>
+        @can('user_management_access')
+            <li class="c-sidebar-nav-dropdown {{ request()->is("admin/permissions*") ? "c-show" : "" }} {{ request()->is("admin/roles*") ? "c-show" : "" }} {{ request()->is("admin/users*") ? "c-show" : "" }}">
+                <a class="c-sidebar-nav-dropdown-toggle" href="#">
+                    <i class="fa-fw fas fa-users c-sidebar-nav-icon">
 
                     </i>
-                    {{ trans('global.logout') }}
+                    {{ trans('cruds.userManagement.title') }}
+                </a>
+                <ul class="c-sidebar-nav-dropdown-items">
+                    @can('permission_access')
+                        <li class="c-sidebar-nav-item">
+                            <a href="{{ route("admin.permissions.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/permissions") || request()->is("admin/permissions/*") ? "c-active" : "" }}">
+                                <i class="fa-fw fas fa-unlock-alt c-sidebar-nav-icon">
+
+                                </i>
+                                {{ trans('cruds.permission.title') }}
+                            </a>
+                        </li>
+                    @endcan
+                    @can('role_access')
+                        <li class="c-sidebar-nav-item">
+                            <a href="{{ route("admin.roles.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/roles") || request()->is("admin/roles/*") ? "c-active" : "" }}">
+                                <i class="fa-fw fas fa-briefcase c-sidebar-nav-icon">
+
+                                </i>
+                                {{ trans('cruds.role.title') }}
+                            </a>
+                        </li>
+                    @endcan
+                    @can('user_access')
+                        <li class="c-sidebar-nav-item">
+                            <a href="{{ route("admin.users.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/users") || request()->is("admin/users/*") ? "c-active" : "" }}">
+                                <i class="fa-fw fas fa-user c-sidebar-nav-icon">
+
+                                </i>
+                                {{ trans('cruds.user.title') }}
+                            </a>
+                        </li>
+                    @endcan
+                </ul>
+            </li>
+        @endcan
+        @can('location_access')
+            <li class="c-sidebar-nav-item">
+                <a href="{{ route("admin.locations.index") }}" class="c-sidebar-nav-link {{ request()->is('admin/locations') || request()->is('admin/locations/*') ? 'c-active' : '' }}">
+                    <i class="fa-fw fas fa-cogs c-sidebar-nav-icon">
+
+                    </i>
+                    {{ trans('cruds.location.title') }}
                 </a>
             </li>
-        </ul>
+        @endcan
+        @can('event_type_access')
+            <li class="c-sidebar-nav-item">
+                <a href="{{ route("admin.event-types.index") }}" class="c-sidebar-nav-link {{ request()->is('admin/event-types') || request()->is('admin/event-types/*') ? 'c-active' : '' }}">
+                    <i class="fa-fw fas fa-cogs c-sidebar-nav-icon">
 
-    </nav>
-    <button class="sidebar-minimizer brand-minimizer" type="button"></button>
+                    </i>
+                    {{ trans('cruds.eventType.title') }}
+                </a>
+            </li>
+        @endcan
+        @can('venue_access')
+            <li class="c-sidebar-nav-item">
+                <a href="{{ route("admin.venues.index") }}" class="c-sidebar-nav-link {{ request()->is('admin/venues') || request()->is('admin/venues/*') ? 'c-active' : '' }}">
+                    <i class="fa-fw fas fa-cogs c-sidebar-nav-icon">
+
+                    </i>
+                    {{ trans('cruds.venue.title') }}
+                </a>
+            </li>
+        @endcan
+        <li class="c-sidebar-nav-item">
+            <a href="#" class="c-sidebar-nav-link" onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
+                <i class="c-sidebar-nav-icon fas fa-fw fa-sign-out-alt">
+
+                </i>
+                {{ trans('global.logout') }}
+            </a>
+        </li>
+    </ul>
 </div>
