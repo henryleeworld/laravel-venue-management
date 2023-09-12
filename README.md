@@ -1,8 +1,9 @@
-# Laravel 8 活動場所
+# Laravel 10 活動場所
 
-提供最新設施、精緻外燴以及專業活動企劃執行，可承接商務會議、企業內訓及研討會、記者招待會等各類型活動。Laravel 8 活動場所主要是用的 [QuickAdminPanel](https://quickadminpanel.com) 生成的，除了一些定制代碼，可依需求彈性改造的工具。
+提供最新設施、精緻外燴以及專業活動企劃執行，可承接商務會議、企業內訓及研討會、記者招待會等各類型活動。
 
 ## 使用方式
+- 打開 php.ini 檔案，啟用 PHP 擴充模組 gd，並重啟服務器。
 - 把整個專案複製一份到你的電腦裡，這裡指的「內容」不是只有檔案，而是指所有整個專案的歷史紀錄、分支、標籤等內容都會複製一份下來。
 ```sh
 $ git clone
@@ -24,14 +25,22 @@ $ php artisan migrate --seed
 ```sh
 $ php artisan storage:link
 ```
+- 執行安裝 Vite 和 Laravel 擴充套件引用的依賴項目。
+```sh
+$ npm install
+```
+- 執行正式環境版本化資源管道並編譯。
+```sh
+$ npm run build
+```
 - 在瀏覽器中輸入已定義的路由 URL 來訪問，例如：http://127.0.0.1:8000。
-- 你可以登入經由 `/login` 來進行登入，預設的電子郵件和密碼分別為 __admin@admin.com__ 和 __password__ 。
+- 你可以經由 `/login` 來進行登入，預設的電子郵件和密碼分別為 __admin@admin.com__ 和 __password__ 。
 
 ----
 
 ## 畫面截圖
-![](https://i.imgur.com/WuJIe60.png)
+![](https://i.imgur.com/DeJoCPk.png)
 > 新增活動場所，檢視資訊是否完整
 
-![](https://i.imgur.com/Nk0YJcq.png)
+![](https://i.imgur.com/K0bn9qM.png)
 > 提供活動場所的費用資訊，讓客戶在租場地時有更多的選擇
