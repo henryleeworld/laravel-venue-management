@@ -22,7 +22,7 @@ class VenuesController extends Controller
     {
         abort_if(Gate::denies('venue_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $venues = Venue::all();
+        $venues = Venue::with(['event_types', 'location'])->get();
 
         return view('admin.venues.index', compact('venues'));
     }
